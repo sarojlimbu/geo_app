@@ -5,17 +5,15 @@ import { Footer, Header } from "@/components";
 
 const MainLayout: React.FC = () => {
   return (
-    <div>
-      <header>
+    <main className="min-h-screen flex flex-col  w-full max-w-full">
+      <section className="bg-header">
         <Header />
-      </header>
-      <main>
+      </section>
+      <section className="flex-1 md:m-0 m-4">
         <Outlet />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </div>
+      </section>
+      <Footer />
+    </main>
   );
 };
 

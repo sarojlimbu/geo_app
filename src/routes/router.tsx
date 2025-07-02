@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import MainLayout from "@/layouts/MainLayout";
-import { PageNotFound, Portfolio } from "@/pages";
+import { MapPage, PageNotFound, Portfolio } from "@/pages";
 
 import routes from "./routeConfig";
 
@@ -10,9 +10,12 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
+        path: routes.MAP,
+        element: <MapPage />,
+      },
+      {
         path: routes.PORTFOLIO,
         element: <Portfolio />,
-        index: true,
       },
     ],
   },

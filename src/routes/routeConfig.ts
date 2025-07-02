@@ -1,5 +1,7 @@
 const routes = Object.freeze({
-  PORTFOLIO: "/",
+  MAP: "/",
+  PORTFOLIO: "/portfolio",
+  CONNECT: "/connect",
   PAGE_NOT_FOUND: "/*",
 } as const);
 

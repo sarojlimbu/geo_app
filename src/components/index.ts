@@ -1,4 +1,6 @@
+import PortfolioCard from "./card/PortfolioCard";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
+import Navbar from "./navbar/Navbar";
 
-export { Header, Footer };
+export { Header, Footer, Navbar, PortfolioCard };

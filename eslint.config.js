@@ -1,24 +1,3 @@
-// import js from "@eslint/js";
-// import tseslint from "typescript-eslint";
-// import globals from "globals"; // ✅ Add this line
-
-// export default tseslint.config([
-//   {
-//     files: ["**/*.{ts,tsx}"],
-//     languageOptions: {
-//       parser: tseslint.parser,
-//       globals: globals.browser, // ✅ Fixes 'console' and 'alert' is not defined
-//     },
-//     rules: {
-//       ...js.configs.recommended.rules,
-//       ...tseslint.configs.recommended.rules,
-//       "no-console": "error",
-//       "no-alert": "warn",
-//     },
-//   },
-// ]);
-
-// eslint.config.js
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import globals from "globals";
@@ -75,7 +54,6 @@ export default tseslint.config(
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/ban-ts-comment": "off",
 
-        //clean code
         // Clean code
         "no-console": "warn",
         "no-alert": "warn",
@@ -87,7 +65,11 @@ export default tseslint.config(
         "import/order": [
           "warn",
           {
-            groups: [["builtin", "external"], "internal", ["parent", "sibling", "index"]],
+            groups: [
+              ["builtin", "external"],
+              "internal",
+              ["parent", "sibling", "index"],
+            ],
             pathGroups: [
               {
                 pattern: "@/**",
