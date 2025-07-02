@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+.vite
+.env*
+.env.local
+*.min.js
+*.bundle.js
+.vscode
+.idea
