@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
             <NavLink
               to={item.path}
               className={({ isActive }) =>
-                `text-[12.5px] font-medium px-6 py-2 ${isActive ? "text-primary" : ""}`
+                `text-[12.5px] font-medium px-6  py-2 ${isActive ? "text-primary" : ""}`
               }
               end={true}
             >
