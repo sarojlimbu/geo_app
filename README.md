@@ -4,7 +4,7 @@ A modern geo-spatial web application built with **Vite**, **React 19**, **TypeSc
 
 ---
 
-## Tech Stack
+## 🧰 Tech Stack
 
 - ⚛️ **React 19** — Component-based UI
 - ⚡ **Vite 7** — Fast dev/build tool
@@ -24,27 +24,29 @@ A modern geo-spatial web application built with **Vite**, **React 19**, **TypeSc
 
 ## 📁 Project Structure
 
+```bash
 geo_app/
-├── public/ # Static public assets
+├── public/                # Static public assets
 ├── src/
-│ ├── api/ # Axios API clients
-│ ├── assets/ # Images, SVGs, static files
-│ ├── components/ # Reusable UI components (includes shadcn)
-│ ├── constants/ # constant data
-│ ├── helper/ # helper function
-│ ├── layout/ # HOC componenets
-│ ├── pages/ # Route components
-│ ├── routes/ # page routes configuration
-│ ├── stores/ # Zustand stores
-│ ├── styles/ # Tailwind/global CSS
-│ ├── types/ # TypeScript type definitions
-│ ├── App.tsx # Root app component
-│ ├── main.tsx # App entry point
-├── .eslintrc.cjs # ESLint config
-├── .prettierrc # Prettier config
-├── vite.config.ts # Vite config
-├── tsconfig.json # TypeScript config
-└── README.md # You're here
+│   ├── api/              # Axios API clients
+│   ├── assets/           # Images, SVGs, static files
+│   ├── components/       # Reusable UI components (includes shadcn)
+│   ├── constants/        # Constant data
+│   ├── helper/           # Helper functions
+│   ├── layout/           # HOC components
+│   ├── pages/            # Route components
+│   ├── routes/           # Page routes configuration
+│   ├── stores/           # Zustand stores
+│   ├── styles/           # Tailwind/global CSS
+│   ├── types/            # TypeScript type definitions
+│   ├── App.tsx           # Root app component
+│   └── main.tsx          # App entry point
+├── .eslintrc.cjs         # ESLint config
+├── .prettierrc           # Prettier config
+├── vite.config.ts        # Vite config
+├── tsconfig.json         # TypeScript config
+└── README.md             # You're here
+```
 
 ## 📁 Project Setup
 
@@ -62,3 +64,7 @@ pnpm install
 pnpm dev
 
 ## Happy Coding
+
+```
+
+```
