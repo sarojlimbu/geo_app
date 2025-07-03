@@ -8,7 +8,8 @@ interface PortfolioState {
   projects: PortfolioProject[];
   loading: boolean;
   error: string | null;
-  fetchProjects: () => Promise<void>;
+  // eslint-disable-next-line no-unused-vars
+  fetchProjects: (signal?: AbortSignal) => Promise<void>;
 }
 
 export const usePortfolioStore = create<PortfolioState>((set) => ({
@@ -16,12 +17,15 @@ export const usePortfolioStore = create<PortfolioState>((set) => ({
   loading: false,
   error: null,
 
-  fetchProjects: async () => {
+  fetchProjects: async (signal?: AbortSignal) => {
     try {
       set({ loading: true, error: null });
-      const data = await fetchPortfolioProjectsAPI();
+      const data = await fetchPortfolioProjectsAPI(signal);
       set({ projects: data, loading: false });
     } catch (error: any) {
+      if (error.name === "AbortError") {
+        return;
+      }
       set({
         error: error.message || "Failed to load projects",
         loading: false,
