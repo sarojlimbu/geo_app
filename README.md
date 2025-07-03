@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
+# Geo_app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern geo-spatial web application built with **Vite**, **React 19**, **TypeScript**, and **shadcn/ui**. It leverages **OpenLayers** for interactive maps, **Zustand** for state management, and **Tailwind CSS 4** for fast and responsive styling.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+- ⚛️ **React 19** — Component-based UI
+- ⚡ **Vite 7** — Fast dev/build tool
+- 🧠 **TypeScript** — Static typing
+- 💨 **Tailwind CSS 4** — Utility-first styling
+- 🧩 **shadcn/ui** — Headless, themeable UI components
+- 🗂️ **Zustand** — Minimal, scalable global state
+- 🧪 **Zod** — Schema validation
+- 🌍 **OpenLayers (ol)** — Vector tile and GIS layer handling
+- 🌐 **React Router v7** — Client-side routing
+- ☁️ **Axios** — HTTP requests
+- 🔧 **ESLint + Prettier** — Code formatting & linting
+- 🪝 **React Hook Form + Resolvers** — Forms and validation
+- 🧹 **Husky + Lint-Staged** — Git hooks for code quality
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+## 📁 Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+geo_app/
+├── public/ # Static public assets
+├── src/
+│ ├── api/ # Axios API clients
+│ ├── assets/ # Images, SVGs, static files
+│ ├── components/ # Reusable UI components (includes shadcn)
+│ ├── constants/ # constant data
+│ ├── helper/ # helper function
+│ ├── layout/ # HOC componenets
+│ ├── pages/ # Route components
+│ ├── routes/ # page routes configuration
+│ ├── stores/ # Zustand stores
+│ ├── styles/ # Tailwind/global CSS
+│ ├── types/ # TypeScript type definitions
+│ ├── App.tsx # Root app component
+│ ├── main.tsx # App entry point
+├── .eslintrc.cjs # ESLint config
+├── .prettierrc # Prettier config
+├── vite.config.ts # Vite config
+├── tsconfig.json # TypeScript config
+└── README.md # You're here
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+## 📁 Project Setup
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 1. Clone the Repository
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+git clone git@github.com:sarojlimbu/geo_app.git
+cd geo_app
 
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+### 2. Install Dependencies
+
+pnpm install
+
+### 3. Run the Development Server
+
+pnpm dev
+
+## Happy Coding
