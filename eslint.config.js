@@ -43,25 +43,21 @@ export default tseslint.config(
         prettier,
       },
       rules: {
-        // ✅ Spread all recommended rules first
         ...js.configs.recommended.rules,
         ...tseslint.configs.recommended[0].rules,
         ...react.configs.recommended.rules,
         ...reactHooks.configs.recommended.rules,
         ...jsxA11y.configs.recommended.rules,
 
-        // ✅ Then your overrides
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/ban-ts-comment": "off",
 
-        // Clean code
         "no-console": "warn",
         "no-alert": "warn",
         eqeqeq: "warn",
         "no-debugger": "warn",
         curly: "warn",
 
-        // ✅ Import order with alias support
         "import/order": [
           "warn",
           {
@@ -86,7 +82,6 @@ export default tseslint.config(
           },
         ],
 
-        // ✅ Prettier integration
         "prettier/prettier": "warn",
       },
     },

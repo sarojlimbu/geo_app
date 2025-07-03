@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import MainLayout from "@/layouts/MainLayout";
-import { MapPage, PageNotFound, Portfolio } from "@/pages";
+import { Connect, MapPage, PageNotFound, Portfolio } from "@/pages";
 
 import routes from "./routeConfig";
 
@@ -16,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: routes.PORTFOLIO,
         element: <Portfolio />,
+      },
+      {
+        path: routes.CONNECT,
+        element: <Connect />,
       },
     ],
   },
