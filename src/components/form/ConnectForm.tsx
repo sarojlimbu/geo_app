@@ -25,7 +25,7 @@ const schema = z.object({
     .email("Please enter a valid email address"),
   contact: z
     .string()
-    .regex(/^\d{10}$/, "Contact number must be exactly 10 digits"),
+    .regex(/^\d{10}$/, "Phone number must be exactly 10 digits"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -147,7 +147,7 @@ const ConnectForm: React.FC = () => {
             name="contact"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Contact</FormLabel>
+                <FormLabel>Phone</FormLabel>
                 <FormControl>
                   <Input
                     className="focus-visible:ring-1  focus-visible:outline-none rounded-none"
@@ -155,7 +155,7 @@ const ConnectForm: React.FC = () => {
                     inputMode="numeric"
                     pattern="\d*"
                     maxLength={10}
-                    placeholder="Contact"
+                    placeholder="Phone"
                     onInput={(e) => {
                       e.currentTarget.value = e.currentTarget.value.replace(
                         /\D/g,
@@ -177,6 +177,7 @@ const ConnectForm: React.FC = () => {
               type="file"
               accept="image/*"
               onChange={handlePhotoChange}
+              placeholder="Upload Photo"
             />
             {photoPreview && (
               <img
@@ -193,6 +194,7 @@ const ConnectForm: React.FC = () => {
               className="focus-visible:ring-1  focus-visible:outline-none rounded-none"
               type="file"
               accept=".pdf,.doc,.docx"
+              placeholder="Upload CV"
               onChange={handleCVChange}
             />
             {cv && (

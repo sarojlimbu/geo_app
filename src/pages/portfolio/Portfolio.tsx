@@ -1,23 +1,26 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 
-import { PortfolioCard } from "@/components";
+import { LoadingCard, PortfolioCard } from "@/components";
 import { KEY_HIGHLIGHTS } from "@/constants/keys";
 import { usePortfolioStore } from "@/stores/portfolio/portfolio.store";
-
-import bgPicture from "../../assets/headerbg.svg";
 
 const BATCH_SIZE = 4;
 const LOAD_MORE_STEP = 2;
 
 const Portfolio: React.FC = () => {
-  const { projects, fetchProjects } = usePortfolioStore();
+  const { loading, projects, fetchProjects } = usePortfolioStore();
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
 
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    fetchProjects();
-  }, [fetchProjects]);
+    const controller = new AbortController();
+
+    fetchProjects(controller.signal);
+    return () => {
+      controller.abort();
+    };
+  }, []);
 
   const onIntersect = useCallback(
     (entries: IntersectionObserverEntry[]) => {
@@ -42,13 +45,10 @@ const Portfolio: React.FC = () => {
     return () => observer.disconnect();
   }, [onIntersect]);
 
+  const isLoading = loading && projects.length === 0;
+
   return (
     <>
-      <img
-        src={bgPicture}
-        alt="icon1"
-        className="absolute top-0 left-0 w-full md:w-fit max-w-none object-cover z-1"
-      />
       <div className="w-full bg-header pb-20 md:pb-14 md:pt-12 relative">
         <div
           className="item-col items-center lg:gap-6 md:gap-4 gap-2
@@ -60,7 +60,6 @@ const Portfolio: React.FC = () => {
             Reliable.
           </div>
         </div>
-
         <div
           className="z-2 h-fit item-row absolute lg:-bottom-12 md:-bottom-16 -bottom-34 left-1/2 
         transform -translate-x-1/2 responsive-view w-full"
@@ -83,19 +82,28 @@ const Portfolio: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-col md:gap-12 mt-50 md:mt-30 gap-6">
-        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-16 gap-10 responsive-view">
-          {projects.slice(0, visibleCount).map((project) => (
-            <div
-              key={project.id}
-              className="transition-all duration-300 ease-in-out animate-slide-up"
-            >
-              <PortfolioCard project={project} />
-            </div>
-          ))}
-          {visibleCount < projects.length && (
-            <div ref={loadMoreRef} className="h-10 col-span-full"></div>
-          )}
-        </div>
+        {isLoading ? (
+          <div className="grid md:grid-cols-2 grid-cols-1 md:gap-16 gap-10 responsive-view">
+            <LoadingCard />
+            <LoadingCard />
+            <LoadingCard />
+            <LoadingCard />
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 grid-cols-1 md:gap-16 gap-10 responsive-view">
+            {projects.slice(0, visibleCount).map((project) => (
+              <div
+                key={project.id}
+                className="transition-all duration-300 ease-in-out animate-slide-up"
+              >
+                <PortfolioCard project={project} />
+              </div>
+            ))}
+            {visibleCount < projects.length && (
+              <div ref={loadMoreRef} className="h-10 col-span-full"></div>
+            )}
+          </div>
+        )}
       </div>
     </>
   );
