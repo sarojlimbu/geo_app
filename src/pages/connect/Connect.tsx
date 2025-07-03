@@ -4,7 +4,7 @@ import { ConnectForm } from "@/components";
 
 const Connect: React.FC = () => {
   return (
-    <div className="w-full bg-header md:py-12 py-4">
+    <div className="w-full bg-header md:py-12 py-4 md:px-0 px-2">
       <div className="responsive-view grid md:grid-cols-[1fr_2fr] grid-cols-1 md:gap-8 gap-4">
         <div className="item-col gap-2">
           <span className="text-2xl md:mt-12">Contact</span>
